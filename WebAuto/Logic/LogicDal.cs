@@ -12,7 +12,7 @@ namespace WebAuto
         public InBusinessNoEntity GetBusinessNoEntity(InBusinessNoEntity sqlparam)
         {
             //string sql = DapperHelper<InBusinessNoEntity>.CompileSelect<InBusinessNoEntity>(sqlparam);
-            string sql = string.Format(@"select * FROM  Orders");
+            string sql = string.Format(@"select * FROM Orders");
            return  DapperHelper<InBusinessNoEntity>.QuerySingle(sql,sqlparam);
         }
     }
