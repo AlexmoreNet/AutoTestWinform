@@ -13,7 +13,7 @@ namespace WebAuto
         private static IWebDriver IWebDriver = null;
         private static readonly object lockS = new object();//确保线程同步
 
-        private SingelIWebDriver()
+        private  SingelIWebDriver()
 
         {
 
