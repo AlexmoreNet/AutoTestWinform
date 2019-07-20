@@ -147,8 +147,7 @@ namespace WebAuto
                         IWebElement inweb = browser.FindElement(By.XPath($"//iframe[contains(@src,'{ keyword}')]"));
                         browser.SwitchTo().Frame(inweb);
                         wd.InitWebValue<InBusinessNoEntity>(ib, browser);
-                        //browser.FindElement(By.XPath("//*[@id=\"customMasterName\"]")).SendKeys("海关总署");
-                        //browser.FindElement(By.XPath("//*[@id=\"manualNo\"]")).SendKeys(this.txtAccount.Text);
+                   
                     }
                     catch (NoSuchElementException ex)
                     {
@@ -159,6 +158,46 @@ namespace WebAuto
                         MessageBox.Show(ex.Message);
                     }
                 });
+        }
+
+        private async void Importbtn_Click(object sender, EventArgs e)
+        {
+            await
+               Task.Run(() =>
+               {
+                   try
+                   {
+                       Button btn = (Button)sender;
+                       InBusinessNoEntity ib = new InBusinessNoEntity();
+                       ib.BusinessNo = this.txtInBusinessNo.Text;
+                       ib = log.GetBusinessNoEntity(ib);
+                       var keyword = ConfigurationManager.AppSettings[btn.Tag.ToString()];
+                       browser.SwitchTo().DefaultContent();
+                       browser.FindElement(By.XPath($"//a[contains(@data-id,'{ keyword}')]")).Click();
+                       IWebElement inweb = browser.FindElement(By.XPath($"//iframe[contains(@src,'{ keyword}')]"));
+                       browser.SwitchTo().Frame(inweb);
+                       browser.FindElement(By.XPath("//*[@id=\"importImpCusDecList\"]")).Click();
+                       string FilePath = Directory.GetCurrentDirectory() + "\\MuBan\\商品数据导入模板.xlsx";
+                       browser.FindElement(By.XPath("//*[@id=\"id_cusForm_file\"]")).SendKeys(FilePath);
+                      
+                       Thread.Sleep(1000);
+                       browser.FindElement(By.XPath("//*[@id=\"uploadBtn\"]")).Click();
+                       Thread.Sleep(1000);
+                       browser.FindElement(By.ClassName("layui-layer-btn0")).Click();
+                       //element.FindElement(By.ClassName("layui-layer-btn0")).Click();
+
+
+
+                   }
+                   catch (NoSuchElementException ex)
+                   {
+                       MessageBox.Show("请确定页面已经打开" + ex.Message);
+                   }
+                   catch (Exception ex)
+                   {
+                       MessageBox.Show(ex.Message);
+                   }
+               });
         }
     }
 }

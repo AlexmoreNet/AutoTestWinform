@@ -46,9 +46,10 @@
             this.txtInBusinessNo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Outbtn = new System.Windows.Forms.Button();
             this.txtOutBusinessNo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Outbtn = new System.Windows.Forms.Button();
+            this.Importbtn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -173,6 +174,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.Importbtn);
             this.tabPage2.Controls.Add(this.Inbtn);
             this.tabPage2.Controls.Add(this.txtInBusinessNo);
             this.tabPage2.Controls.Add(this.label3);
@@ -186,7 +188,7 @@
             // 
             // Inbtn
             // 
-            this.Inbtn.Location = new System.Drawing.Point(127, 71);
+            this.Inbtn.Location = new System.Drawing.Point(80, 60);
             this.Inbtn.Name = "Inbtn";
             this.Inbtn.Size = new System.Drawing.Size(75, 23);
             this.Inbtn.TabIndex = 2;
@@ -223,6 +225,17 @@
             this.tabPage3.Text = "出口";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // Outbtn
+            // 
+            this.Outbtn.Location = new System.Drawing.Point(127, 71);
+            this.Outbtn.Name = "Outbtn";
+            this.Outbtn.Size = new System.Drawing.Size(75, 23);
+            this.Outbtn.TabIndex = 5;
+            this.Outbtn.Tag = "Out";
+            this.Outbtn.Text = "填充数据";
+            this.Outbtn.UseVisualStyleBackColor = true;
+            this.Outbtn.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // txtOutBusinessNo
             // 
             this.txtOutBusinessNo.Location = new System.Drawing.Point(80, 10);
@@ -239,16 +252,16 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "业务编号";
             // 
-            // Outbtn
+            // Importbtn
             // 
-            this.Outbtn.Location = new System.Drawing.Point(127, 71);
-            this.Outbtn.Name = "Outbtn";
-            this.Outbtn.Size = new System.Drawing.Size(75, 23);
-            this.Outbtn.TabIndex = 5;
-            this.Outbtn.Tag = "Out";
-            this.Outbtn.Text = "填充数据";
-            this.Outbtn.UseVisualStyleBackColor = true;
-            this.Outbtn.Click += new System.EventHandler(this.button1_Click_1);
+            this.Importbtn.Location = new System.Drawing.Point(185, 60);
+            this.Importbtn.Name = "Importbtn";
+            this.Importbtn.Size = new System.Drawing.Size(75, 23);
+            this.Importbtn.TabIndex = 3;
+            this.Importbtn.Tag = "In";
+            this.Importbtn.Text = "商品导入";
+            this.Importbtn.UseVisualStyleBackColor = true;
+            this.Importbtn.Click += new System.EventHandler(this.Importbtn_Click);
             // 
             // Form1
             // 
@@ -301,6 +314,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Inbtn;
         private System.Windows.Forms.Button Outbtn;
+        private System.Windows.Forms.Button Importbtn;
     }
 }
 
